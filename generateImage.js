@@ -21,7 +21,7 @@ export function generateImageByString(str, userOptions = {}) {
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = '#FFF';
-    ctx.fillText(name[0], options.w / 2, options.h / 2 + options.h * 0.07);
+    ctx.fillText(name[0].toUpperCase(), options.w / 2, options.h / 2 + options.h * 0.07);
 
     let base64Img = canvas.toDataURL('image/png');
     return base64Img;
