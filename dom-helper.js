@@ -11,3 +11,15 @@ export function checkIsIntoView(targetSelector, scrollSelector, offsetSize = 0) 
 		return false;
 	}
 }
+
+export function onIntoView({ targetSelector, scrollSelector, offsetSize = 0, thresholds: 1.0, callback}) {
+    let options = {
+        root: scrollSelector ? document.querySelector(scrollSelector) : null,
+        rootMargin: offsetSize + 'px',
+        threshold,
+    };
+
+    let observer = new IntersectionObserver((entries, observer)=>{
+        callback && callback(entries, observer)
+    }, options);
+}
