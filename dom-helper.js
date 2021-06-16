@@ -22,4 +22,7 @@ export function onIntoView({ targetSelector, scrollSelector, offsetSize = 0, thr
     let observer = new IntersectionObserver((entries, observer)=>{
         callback && callback(entries, observer)
     }, options);
+    
+    let target = document.querySelector(targetSelector);
+    observer.observe(target);
 }
