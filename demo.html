@@ -8,7 +8,9 @@
 </head>
 <body>
     <script type="module">
-        import {generateImageByString} from './generateImageByString.js';
+        import { generateImageByString } from './generateImage.js';
+        import { listToTree } from './data-helper.js';
+
         function testGenerateImageByString() {
             let data = generateImageByString("Hello, World!");
 
@@ -16,7 +18,33 @@
             img.src = data;
             document.body.append(img);
         }
-        testGenerateImageByString();
+
+        function testListToTree() {
+            const dataList = [
+                {
+                    id: 1,
+                    title: '1'
+                },
+                {
+                    id: 2,
+                    title: '2'
+                },
+                {
+                    id: 3,
+                    title: '3'
+                },
+                {
+                    id: 4,
+                    title: '4',
+                    parent_id: 2,
+                },
+            ]
+
+            console.log(listToTree(dataList, { parentId: 'parent_id', children: 'childrens'}))
+        }
+
+        // testGenerateImageByString();
+        testListToTree();
     </script>
 </body>
 </html>
