@@ -12,7 +12,7 @@
         import { listToTree } from './data-helper.js';
 
         function testGenerateImageByString() {
-            let data = generateImageByString("Hello, World!");
+            let data = generateImageByString("Hello, World!", { brightness: 2.5 });
 
             let img = new Image();
             img.src = data;
@@ -43,7 +43,7 @@
             console.log(listToTree(dataList, { parentId: 'parent_id', children: 'childrens'}))
         }
 
-        // testGenerateImageByString();
+        testGenerateImageByString();
         testListToTree();
     </script>
 </body>
